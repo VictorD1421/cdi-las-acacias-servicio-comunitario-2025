@@ -6,35 +6,35 @@ const servicesHome = {
         title: "Emergencias 24H",
         content:
           "Emergencias 24 horas, atención médica inmediata para adultos y pediátricos, garantizando una respuesta rápida y efectiva ante situaciones críticas.",
-        image: "home7.webp",
+        image: "home1.jpg",
       },
       {
         title: "Oftalmología",
         content:
           "Servicios de oftalmología, incluyendo exámenes de la vista, diagnóstico y tratamiento de enfermedades oculares.",
-        image: "home2.webp",
+        image: "home3.jpg",
       },
       {
         title: "Inmunización",
         content:
           "Inmunización, programas de vacunación para prevenir enfermedades y proteger la salud de la comunidad.",
-        image: "home9.webp",
+        image: "home2.jpg",
       },
       {
         title: "Rayos X",
         content: "Servicios de rayos X, diagnóstico por imagen para evaluar lesiones óseas y otras condiciones médicas.",
-        image: "home6.webp",
+        image: "home4.jpg",
       },
       {
         title: "Laboratorio",
         content: "Servicios de laboratorio, análisis clínicos para diagnóstico y seguimiento de enfermedades.",
-        image: "home1.webp",
+        image: "home5.jpg",
       },
       {
         title: "Ecografía",
         content:
-          "Atención médica integral, consultas médicas generales y especializadas para adultos y niños, enfocadas en la prevención y el tratamiento de enfermedades.",
-        image: "home4.webp",
+          "Ecografías diagnósticas, estudios de imagen no invasivos para evaluar el estado de órganos internos y tejidos.",
+        image: "home6.jpg",
       },
     ],
   };

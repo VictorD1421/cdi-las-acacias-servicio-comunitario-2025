@@ -28,6 +28,11 @@ const whyHome: WhyData = {
       alt: "Estudiantes del IUTA Maracay Informática.",
       info: "Estudiantes de Informática del IUTA Maracay realizando servicio comunitario.",
     },
+     {
+      src: "/images/why/home/convenio3.jpg",
+      alt: "Estudiantes del IUTA Maracay Informática.",
+      info: "Estudiantes de Informática del IUTA Maracay realizando servicio comunitario.",
+    },
   ],
 }
 

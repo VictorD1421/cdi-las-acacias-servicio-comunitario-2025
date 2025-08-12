@@ -26,10 +26,10 @@ export default function Footer() {
       <div className="container mx-auto px-6 py-12 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-4">
           <Image
-            src="/logo.png"
+            src="/logo2.png"
             alt="CDI Las Acacias"
-            width={150}
-            height={40}
+            width={360}
+            height={80}
             className="mx-auto lg:mx-0"
           />
           <p className="text-sm">

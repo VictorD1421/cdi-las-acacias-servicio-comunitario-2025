@@ -13,7 +13,7 @@ const informationHome = {
       text: "Aunque no se menciona un fundador individual, el CDI es fruto del esfuerzo colectivo entre el poder popular organizado, el gobierno nacional y autoridades lo0cales como el alcalde Rafael morales. La comuna los lanceros valientes y consejos comunales como san Jose 1 han sido protagonistas en su rehabilitación y gestión.",
     },
     {
-      text: "Actualmente el centro de diagnóstico integral (CDI) lo dirige la Dra. Maryuri Borges junto a un gran grupo de trabajo que consta de # de personas quienes se encargan de brindar la mejor atención y servicios médicos específicamente en las siguientes áreas: medicina de emergencia; de adulto y pediátrica, enfermería, oftalmología, inmunización, ecografía, rayos x, y laboratorio.",
+      text: "Actualmente el centro de diagnóstico integral (CDI) lo intengran un gran grupo de trabajo que consta de 45 empleados entre médicos, enfermeras y personal administrativo, quienes se encargan de brindar la mejor atención y servicios médicos específicamente en las siguientes áreas: medicina de emergencia; de adulto y pediátrica, enfermería, oftalmología, inmunización, ecografía, rayos x, y laboratorio.",
     },
     {
       text: "Es gracias a su inmenso trabajo y compromiso con la salud y la atención medica que el CDI Dr. Jose María Vargas continua sus operaciones y puede seguir brindando acceso a la salud gratuita y de calidad a las personas que más lo necesitan en la comunidad de Las Acacias.",
@@ -27,6 +27,8 @@ const informationHome = {
     "home2.jpg",
     "home3.jpg",
     "home4.jpg",
+    "home5.jpg",
+    "home6.jpg",
   ],
 }
 

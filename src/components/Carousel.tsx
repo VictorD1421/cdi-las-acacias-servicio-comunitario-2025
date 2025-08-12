@@ -22,7 +22,7 @@ interface Props {
     background: string;
   }[];
   page: string;
-  max_w_title: string; // e.g. "600px"
+  max_w_title: string; 
 }
 
 function SampleNextArrow({ onClick }: any) {
@@ -105,9 +105,9 @@ export default function Carousel({ data, page, max_w_title }: Props) {
     prevArrow: <SamplePrevArrow />,
     responsive: [
       {
-        breakpoint: 640,   // below 640px (sm)
+        breakpoint: 640,   
         settings: {
-          arrows: false    // hide arrows on small screens
+          arrows: false 
         },
       },
     ],
@@ -183,3 +183,34 @@ export default function Carousel({ data, page, max_w_title }: Props) {
     </div>
   );
 }
+
+/*
+
+1. Props esperados
+- data: Array de objetos con title, subtitle, paragraph y background. Define el contenido de cada slide.
+- page: Nombre de la carpeta donde están las imágenes de fondo.
+- max_w_title: Define el ancho máximo del título/subtítulo para mantener legibilidad.
+
+2. Slider Settings
+- Usa react-slick para crear el carrusel.
+- fade: true activa transición suave entre slides.
+- autoplay: true con autoplaySpeed: 15000 cambia cada 15 segundos.
+- arrows: true muestra flechas personalizadas (SampleNextArrow, SamplePrevArrow).
+- En pantallas menores a 640px (breakpoint), las flechas se ocultan.
+
+3. Estilos y fuentes
+- Se usa la fuente Heebo desde Google Fonts.
+- Las clases de Tailwind CSS definen tamaños responsivos, sombras, colores y transiciones.
+- El fondo de cada slide se carga dinámicamente desde /images/slider/${page}/${item.background}.
+
+4. Cómo modificar contenido
+- Para cambiar el texto o imágenes, edita el array data que se pasa como prop.
+- Para cambiar el estilo, ajusta las clases Tailwind en los elementos deseados.
+- Para cambiar la duración entre slides, modifica autoplaySpeed.
+- Para cambiar la fuente, reemplaza la configuración de Heebo por otra fuente de Google Fonts.
+
+5. Para modificar las informaciones de los slides
+- Edita el array data en el componente padre que usa este Carousel.
+- Cada objeto debe tener las propiedades title, subtitle, paragraph y background.
+- Asegúrate de que las imágenes estén en la carpeta correcta según el prop page.
+*/

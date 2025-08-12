@@ -29,7 +29,7 @@ export default function Header() {
         } transition-shadow duration-300`}
       >
         <Link href="/" className="flex items-center">
-          <div className="relative w-40 h-12 lg:w-48 lg:h-16">
+          <div className="relative w-48 h-16 sm:w-56 sm:h-20 lg:w-64 lg:h-24">
             <Image
               src="/logo.png"
               alt="CDI Las Acacias"
