@@ -1,7 +1,7 @@
 const horaryData = [
   {
     day: "Emergencias",
-    hours: "Todos los días",
+    hours: "Las 24 horas del día",
   },
   
 ];

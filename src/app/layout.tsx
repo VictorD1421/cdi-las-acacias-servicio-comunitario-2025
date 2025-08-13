@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
-import { GoogleTagManager } from "@next/third-parties/google";
 import { Providers } from "@/components/providers";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -33,7 +32,6 @@ export default function RootLayout({
         <Providers>
           <Header />
           {children}
-          <FloatButtons />
           <ScrollTop />
           <Footer />
         </Providers>
