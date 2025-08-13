@@ -1,8 +1,8 @@
 "use client"
 
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { Heebo } from "next/font/google"
 
 const heebo = Heebo({
@@ -21,6 +21,20 @@ interface Props {
   alt: string
 }
 
+// Hook to detect mobile screen
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkSize = () => setIsMobile(window.innerWidth < breakpoint)
+    checkSize()
+    window.addEventListener("resize", checkSize)
+    return () => window.removeEventListener("resize", checkSize)
+  }, [breakpoint])
+
+  return isMobile
+}
+
 const containerVariants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.2 } },
@@ -33,6 +47,16 @@ const textVariants = {
 
 export default function Information({ data, page, alt }: Props) {
   const { title, subtitle, paragraphs, images } = data
+  const isMobile = useIsMobile()
+  const [currentImage, setCurrentImage] = useState(0)
+
+  useEffect(() => {
+    if (!isMobile) return
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length)
+    }, 15000) // 15 seconds
+    return () => clearInterval(interval)
+  }, [isMobile, images.length])
 
   return (
     <section className="relative bg-white pt-24 pb-32 overflow-hidden">
@@ -48,35 +72,7 @@ export default function Information({ data, page, alt }: Props) {
 
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12">
-          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {images.map((src, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: i % 2 ? -30 : 30, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-                whileHover={{
-                  scale: 1.07,
-                  y: -8,
-                  rotate: [0, 2, -2, 0],
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 250,
-                  damping: 12,
-                }}
-                className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg ring-4 ring-white cursor-pointer"
-              >
-                <Image
-                  src={`/images/information/${page}/${src}`}
-                  alt={alt}
-                  fill
-                  className="object-cover"
-                />
-              </motion.div>
-            ))}
-          </div>
-
+          {/* Text Section */}
           <motion.div
             className="flex-1 max-w-xl"
             variants={containerVariants}
@@ -110,6 +106,58 @@ export default function Information({ data, page, alt }: Props) {
               </motion.p>
             ))}
           </motion.div>
+
+          {/* Image Section */}
+          {isMobile ? (
+            <div className="flex-1 w-full max-w-md mx-auto">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentImage}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.8 }}
+                  className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg ring-4 ring-white"
+                >
+                  <Image
+                    src={`/images/information/${page}/${images[currentImage]}`}
+                    alt={alt}
+                    fill
+                    className="object-cover"
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          ) : (
+            <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {images.map((src, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: i % 2 ? -30 : 30, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  whileHover={{
+                    scale: 1.07,
+                    y: -8,
+                    rotate: [0, 2, -2, 0],
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 250,
+                    damping: 12,
+                  }}
+                  className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg ring-4 ring-white cursor-pointer"
+                >
+                  <Image
+                    src={`/images/information/${page}/${src}`}
+                    alt={alt}
+                    fill
+                    className="object-cover"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
