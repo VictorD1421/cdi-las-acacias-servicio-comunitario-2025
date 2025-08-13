@@ -101,12 +101,14 @@ export default function Carousel({ data, page, max_w_title }: Props) {
         {data.map((item, idx) => (
           <div key={idx} className="w-full">
             <div
-              className={`w-full bg-cover bg-no-repeat bg-center sm:bg-right-top h-[320px] sm:h-[480px] md:h-[600px] lg:h-[720px] xl:h-[840px] relative`}
+              className={`w-full bg-cover bg-no-repeat bg-center sm:bg-right-top 
+                min-h-[320px] sm:min-h-[480px] md:min-h-[600px] lg:min-h-[720px] xl:min-h-[840px] 
+                relative flex items-center justify-center`}
               style={{
                 backgroundImage: `url("/images/slider/${page}/${item.background}")`,
               }}
             >
-              <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center px-4 py-6 sm:py-12 text-center">
+              <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center px-4 py-6 sm:py-12 text-center overflow-y-auto max-h-full">
                 <h3
                   className={`${heebo.className} text-lg sm:text-xl md:text-2xl text-white mb-2 sm:mb-4 drop-shadow max-w-xl`}
                 >
